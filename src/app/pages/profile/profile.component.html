@@ -1,0 +1,11 @@
+<div>
+  Account address: {{account}}
+</div>
+<div>
+  Owned songs:
+  <div *ngFor="let song of songs">{{song|json}}</div>
+</div>
+<div>
+  Owned listings:
+  <div *ngFor="let listing of listings">{{listing|json}}</div>
+</div>

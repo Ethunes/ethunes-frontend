@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import { WalletService } from '../services/wallet.service'
 
-import { MENU_ITEMS } from './pages-menu';
+import { MENU_ITEMS } from './pages-menu'
 
 @Component({
   selector: 'ngx-pages',
@@ -15,4 +16,23 @@ import { MENU_ITEMS } from './pages-menu';
 export class PagesComponent {
 
   menu = MENU_ITEMS;
+
+  constructor(private walletService: WalletService) {
+    this.walletService.activeAccount$.subscribe(account=>{
+      if(account){
+        this.menu = MENU_ITEMS.concat(
+          [
+            {
+              title: 'Your Profile',
+              icon: 'person-outline',
+              link: '/profile/'+account,
+            },
+          ]
+        )
+      } else {
+        this.menu = MENU_ITEMS
+      }
+    })
+  }
+
 }
