@@ -64,12 +64,12 @@ export class ProfileComponent implements OnInit {
     this.activatedRoute.paramMap
       .pipe(
         map(paramMap => paramMap.get('account')),
-        switchMap(account => this.apollo.query<any>({
+        switchMap(account => this.apollo.watchQuery<any>({
           variables: {
-            owner: account
+            owner: account.toLowerCase()
           },
           query: this.query
-        })))
+        }).valueChanges))
       .subscribe(response => {
         this.songs = response?.data?.songs
         this.listings = response?.data?.listings
