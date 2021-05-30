@@ -1,2 +1,7 @@
-List of listings:
-<div *ngFor="let listing of listings">{{listing|json}}</div>
+<h2>Listings</h2>
+<div *ngIf="!loading">
+  <p *ngIf="listings.length===0">
+    No listings found
+  </p>
+  <div *ngFor="let listing of listings">{{listing|json}}</div>
+</div>

@@ -3,7 +3,7 @@
 </div>
 <div>
   Owned songs:
-  <div *ngFor="let song of songs">{{song|json}}</div>
+  <song *ngFor="let song of songs" [song]="song"></song>
 </div>
 <div>
   Owned listings:

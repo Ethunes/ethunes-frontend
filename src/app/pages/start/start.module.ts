@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StartComponent } from './start.component';
 import { StartRoutingModule } from './start-routing.module'
+import { ComponentsModule } from '../../components/components.module'
 
 
 
@@ -11,6 +12,7 @@ import { StartRoutingModule } from './start-routing.module'
   ],
   imports: [
     CommonModule,
+    ComponentsModule,
     StartRoutingModule
   ]
 })

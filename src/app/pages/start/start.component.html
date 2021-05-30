@@ -1,10 +1,6 @@
 <div *ngIf="!loading">
-  <div>
-    Latest songs:
-    <div *ngFor="let song of songs">{{song|json}}</div>
-  </div>
-  <div>
-    Latest listings:
-    <div *ngFor="let listing of listings">{{listing|json}}</div>
-  </div>
+  <h2>Latest Songs</h2>
+  <song *ngFor="let song of songs" [song]="song"></song>
+  <h2>Latest Listings</h2>
+  <div *ngFor="let listing of listings">{{listing|json}}</div>
 </div>

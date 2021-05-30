@@ -11,13 +11,12 @@ import { EthunesService } from '../../services/ethunes.service'
 export class ListingsComponent implements OnInit {
 
   listings: any[] = []
+  loading = true
 
   constructor(private apollo: Apollo) { }
 
-  ngOnInit(): void { }
-
-  listSongs() {
-    return this.apollo.query<any>({
+  ngOnInit(): void {
+    this.apollo.query<any>({
       query: gql`{
         listings{
           id
@@ -31,6 +30,7 @@ export class ListingsComponent implements OnInit {
       `
     }).subscribe(response => {
       this.listings = response?.data?.listings
+      this.loading = response.loading
     }
     )
   }

@@ -29,6 +29,10 @@ export class StartComponent implements OnInit {
         }
         songs(first: 5) {
                 id
+                title
+                description
+                image
+                url
                 creator {
                   id
                 }

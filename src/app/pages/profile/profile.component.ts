@@ -42,6 +42,10 @@ export class ProfileComponent implements OnInit {
     }
     songs(where: { creator: $owner}) {
       id
+      title
+      description
+      image
+      url
       creator {
         id
       }
@@ -60,14 +64,12 @@ export class ProfileComponent implements OnInit {
     this.activatedRoute.paramMap
       .pipe(
         map(paramMap => paramMap.get('account')),
-        switchMap(account => this.apollo.watchQuery<any>({
+        switchMap(account => this.apollo.query<any>({
           variables: {
             owner: account
           },
           query: this.query
-        }).valueChanges)
-      )
-
+        })))
       .subscribe(response => {
         this.songs = response?.data?.songs
         this.listings = response?.data?.listings

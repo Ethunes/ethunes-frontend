@@ -18,6 +18,10 @@ export class SongsComponent implements OnInit {
       query: gql`{
         songs {
                 id
+                title
+                description
+                image
+                url
                 creator {
                   id
                 }

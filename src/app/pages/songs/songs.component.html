@@ -1,4 +1,4 @@
+<h2>Songs</h2>
 <div *ngIf="!loading">
-  List of songs:
-  <div *ngFor="let song of songs">{{song|json}}</div>
+  <song *ngFor="let song of songs" [song]="song"></song>
 </div>

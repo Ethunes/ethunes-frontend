@@ -1,0 +1,8 @@
+<nb-card>
+  <nb-card-header>{{song.title}}</nb-card-header>
+  <nb-card-body>
+    <img [src]="song.image" alt="" height="100">
+    {{song.description}}
+  </nb-card-body>
+  <nb-card-footer>By <a [routerLink]="['/profile', song.creator.id]" routerLinkActive="router-link-active" >{{song.creator.id}}</a> <button (click)="playPause()">play</button> </nb-card-footer>
+</nb-card>
