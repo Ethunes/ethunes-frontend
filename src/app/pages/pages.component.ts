@@ -27,6 +27,11 @@ export class PagesComponent {
               icon: 'person-outline',
               link: '/profile/'+account,
             },
+            {
+              title: 'Create',
+              icon: 'plus-outline',
+              link: '/create',
+            },
           ]
         )
       } else {

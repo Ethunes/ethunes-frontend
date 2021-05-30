@@ -34,6 +34,11 @@ const routes: Routes = [{
         .then(m => m.MiscellaneousModule),
     },
     {
+      path: 'create',
+      loadChildren: () => import('./create/create.module')
+        .then(m => m.CreateModule),
+    },
+    {
       path: '',
       redirectTo: '/start',
       pathMatch: 'full',

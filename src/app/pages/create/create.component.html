@@ -1,0 +1,29 @@
+<h2>Create New Song</h2>
+<nb-checkbox [(checked)]="checked">I am the copyright hodler...</nb-checkbox>
+<div *ngIf="checked">
+
+  <p>Thats awesome! Now you are just a few clicks away from getting your track on chain.</p>
+  <nb-card>
+    <nb-card-header>Details</nb-card-header>
+    <nb-card-body>
+      <input type="text" nbInput fullWidth status="basic"  [(ngModel)]="title" placeholder="Title">
+      <input type="textarea" nbInput fullWidth status="basic" [(ngModel)]="description" placeholder="Description">
+      <div class="control-status-example">
+        <input type="text" nbInput fullWidth status="control" placeholder="Control">
+      </div>
+      <ngx-file-drop dropZoneLabel="Drop music file here" multiple="false" (onFileDrop)="addMusic($event)">
+        <ng-template  *ngIf="!trackUrl" ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+            Select music file
+          <button type="button" (click)="openFileSelector()">Select Music File</button>
+        </ng-template>
+      </ngx-file-drop>
+      <ngx-file-drop *ngIf="!imageUrl" dropZoneLabel="Drop image file here" multiple="false" (onFileDrop)="addImage($event)">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+            Select image file
+          <button type="button" (click)="openFileSelector()">Select Image File</button>
+        </ng-template>
+      </ngx-file-drop>
+      <button [disabled]="!title || !description || !imageUrl || !trackUrl" nbButton (click)="createSong()">Create</button>
+    </nb-card-body>
+  </nb-card>
+</div>
