@@ -1,11 +1,17 @@
+<h2>
+  Account: {{account}}
+</h2>
 <div>
-  Account address: {{account}}
-</div>
-<div>
-  Owned songs:
+  <h2>Owned Songs</h2>
+  <p *ngIf="songs.length===0">
+    No songs found
+  </p>
   <song *ngFor="let song of songs" [song]="song"></song>
 </div>
 <div>
-  Owned listings:
+  <h2>Owned Listings</h2>
+  <p *ngIf="listings.length===0">
+    No listings found
+  </p>
   <div *ngFor="let listing of listings">{{listing|json}}</div>
 </div>

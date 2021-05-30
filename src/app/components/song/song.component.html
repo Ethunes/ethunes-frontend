@@ -1,8 +1,21 @@
 <nb-card>
   <nb-card-header>{{song.title}}</nb-card-header>
   <nb-card-body>
-    <img [src]="song.image" alt="" height="100">
-    {{song.description}}
+    <div class="row">
+      <img class="col-md-2" [src]="song.image" alt="">
+      <p class="col-md-10">
+        {{song.description}}
+      </p>
+    </div>
   </nb-card-body>
-  <nb-card-footer>By <a [routerLink]="['/profile', song.creator.id]" routerLinkActive="router-link-active" >{{song.creator.id}}</a> <button (click)="playPause()">play</button> </nb-card-footer>
+  <nb-card-footer>
+    <div class="row">
+      <p class="col-md-11">
+        By <a [routerLink]="['/profile', song.creator.id]" routerLinkActive="router-link-active" >{{song.creator.id}}</a>
+      </p>
+      <div class="col-md-1" >
+        <button nbButton (click)="playPause()"><nb-icon icon="play-circle-outline"></nb-icon></button>
+      </div>
+    </div>
+  </nb-card-footer>
 </nb-card>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SongComponent } from './song/song.component';
-import { NbCardModule } from '@nebular/theme'
+import { NbButtonModule, NbCardModule, NbIconModule } from '@nebular/theme'
 import { RouterModule } from '@angular/router'
 
 
@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router'
   imports: [
     CommonModule,
     RouterModule,
+    NbButtonModule,
+    NbIconModule,
     NbCardModule,
   ],
   exports: [
